@@ -1,0 +1,46 @@
+###############################################################################
+# ~/.inputrc
+#
+# gnzsnz dotfiles
+#
+# inputrc for libreadline. sensible defauls
+#
+###############################################################################
+
+$include /etc/inputrc
+
+# $include .config/sensible.inputrc
+
+# Sensible Bash - An attempt at saner Bash defaults
+# Maintainer: mrzool <http://m rzool.cc>
+# Repository: https://github.com/mrzool/bash-sensible
+# Version: 0.2.2
+#
+# sensible.inputrc
+
+# Enable history expansion with space
+# E.g. typing !!<space> will replace the !! with your last command
+# https://superuser.com/questions/1461096/spacebar-doesnt-work-in-python-shell-or-pdb
+$if Bash
+    Space: magic-space
+$endif
+
+## SMARTER TAB-COMPLETION (Readline bindings) ##
+# Perform file completion in a case insensitive fashion
+set completion-ignore-case on
+
+# Treat hyphens and underscores as equivalent
+set completion-map-case on
+
+# Display matches for ambiguous patterns at first tab press
+set show-all-if-ambiguous on
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Enable incremental history search with up/down arrows (also Readline goodness)
+# Learn more about this here: http://codeinthehole.com/writing/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char

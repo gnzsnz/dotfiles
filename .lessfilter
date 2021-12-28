@@ -1,0 +1,38 @@
+#! /bin/sh
+###############################################################################
+# ~/.lessfilter
+#
+# gnzsnz dotfiles
+#
+# lessfilter providing source highlight for linux. Requires pygments or  
+# source-highlight package.
+# 
+# Not needed in OSx as lesspipe.sh supports source-highlight
+#
+###############################################################################
+
+# don't use it on OSX 
+[ "$(uname)" = "Darwin" ] && exit 1
+
+# assume linux
+if [ "$LESSCOLORIZER" = "pygmentize" ]; then
+    [ -f ~/.config/less-pygmentize-filter.sh ] && \
+        ~/.config/less-pygmentize-filter.sh "$1"
+    return $?
+elif [ "$LESSCOLORIZER" = "source-highlight" ]; then
+    case $1 in
+    *ChangeLog|*changelog)
+        source-highlight --failsafe -f esc --lang-def=changelog.lang --style-file=esc.style -i "$1"
+        ;;
+    *Makefile|*makefile)
+        source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i "$1"
+        ;;
+    *) 
+        source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i "$1"
+        ;;
+    esac
+else
+    exit 1
+fi
+
+exit 0

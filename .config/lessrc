@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+###############################################################################
+# ~/.config/lessrc
+#
+# gnzsnz dotfiles
+#
+# less settings
+#
+###############################################################################
+
+# make less more friendly for non-text input files, see lesspipe(1)
+case $(uname) in
+  Linux)
+    [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+    ;;
+  Darwin)
+    # OSX version
+    [ "$(which lesspipe.sh)" ] && eval "$(SHELL=/bin/sh lesspipe.sh)"
+    ;;
+  *)
+  [ -x ~/.lessfilter ] && export LESSOPEN="| ~/.lessfilter %s"
+  esac
+
+# Enable syntax-highlighting in less.
+# brew install source-highlight
+if [ "$(which pygmentize)" ]; then
+  export PYGMENTIZE_STYLE=$THEME
+  case $(uname) in
+  Linux)
+    export LESSCOLORIZER="pygmentize" ;;
+  Darwin)
+    export LESSCOLORIZER="pygmentize -O style=$PYGMENTIZE_STYLE " ;;
+  *)
+    export LESSCOLORIZER="pygmentize" ;;
+  esac
+
+elif [ "$(which source-highlight)" ]; then
+  export LESSCOLORIZER="source-highlight"
+fi
+
+export LESS=" -R -X -F -S -I"
+export LESSCHARSET=utf-8
+alias less='less -m -n -g -i -J --underline-special --SILENT'
+alias more='less'
+# https://unix.stackexchange.com/questions/185544/no-colored-output-in-less-for-the-ls-command
+export CLICOLOR_FORCE=1

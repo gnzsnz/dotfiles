@@ -3,7 +3,7 @@
 	smudge = git-media-smudge %f
 [user]
 	name = gonzo
-	email = yo@gnzsnz.com
+	email = gonzalosaenz@gmail.com
 	signingkey = 5B9513CB
 [commit]
 	gpgsign = true
@@ -14,3 +14,14 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[color]
+	ui = auto
+[init]
+	defaultBranch = master
+[alias]
+	slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'
+	aliases = config --get-regexp alias
+[help]
+	autocorrect = 20
+[advice]
+	ignoredHook = false
