@@ -48,6 +48,11 @@ fi
 
 # OS specific
 if [[ "$OSTYPE" == "darwin"* ]]; then 
+  
+  # set locale for OSX
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  
   # OSX settings - mainly brwe.sh
   # homebrew
   [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
