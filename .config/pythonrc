@@ -48,9 +48,10 @@ alias pipup3='pip3 freeze | grep -v '^\-e' |grep -v @| cut -d = -f 1 | xargs pip
 
 # homebrew python pip
 # pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
-# cache pip-installed packages to avoid re-downloading
-[ -d ~/.pip/cache ] && export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+if [[ -z "$PIP_REQUIRE_VIRTUALENV" ]]; then
+   PIP_REQUIRE_VIRTUALENV=true
+   export PIP_REQUIRE_VIRTUALENV
+fi
 
 # pip bash completion start
 _pip_completion()
