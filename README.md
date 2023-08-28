@@ -45,11 +45,11 @@ Now that we have all that we need
 cd $HOME
 git clone https://github.com/gnzsnz/dotfiles.git .dotfiles
 cd .dotfiles
-stow
+stow .
 
 # if you get a warnign about overriding existing files
 # you can do this under your responsibility
-stow --adopt
+stow --adopt .
 git diff # see if you need anythin
 git reset --hard origin master # ignore local files
 ```
