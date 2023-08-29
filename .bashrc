@@ -58,6 +58,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
   [ -f /usr/local/bin/brew ] && eval "$(/usr/local/bin/brew shellenv)"
 
+  # disable env hints
+  [ "$(which brew)" ] && export HOMEBREW_NO_ENV_HINTS=1
+  
   # homebrew bash_completion
   #if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
   #    source "$(brew --prefix)/etc/bash_completion"
@@ -158,16 +161,6 @@ fi
 
 #torsocks
 [ -f "$HOME"/.torsocks.conf ] && export TORSOCKS_CONF_FILE="$HOME"/.torsocks.conf
-
-# byobu https://manpages.ubuntu.com/manpages/focal/en/man1/byobu.1.html
-# export BYOBU_PREFIX=/usr/local
-# BYOBU_CONFIG_DIR=$XDG_CONFIG_HOME/byobu
-# $BYOBU_CONFIG_DIR/statusrc
-# $BYOBU_CONFIG_DIR/datetime
-# $BYOBU_CONFIG_DIR/windows.tmux
-# byobu prompt
-#[ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt
-#byobu-prompt#
 
 # kitty bash completion
 #source <(kitty + complete setup bash)
