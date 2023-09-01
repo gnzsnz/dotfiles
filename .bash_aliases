@@ -33,7 +33,7 @@ alias psmem="ps aux | sort -nrk +4 | head | cat <(ps aux | head -1) - "
 alias pscpu="ps aux | sort -nrk +3 | head | cat <(ps aux | head -1) - "
 
 # grep history, ex gh grep
-alias gh='history|grep -i '
+alias ghis='history|grep -i '
 
 # grep env(viroment)
 alias genv='env|grep -i '
