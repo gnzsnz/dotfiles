@@ -69,6 +69,9 @@ case $(uname) in
 esac
 ## end OS specific alias
 
+# gpg update tty for pientry
+alias gpgtty='gpg-connect-agent updatestartuptty /bye'
+
 ## fail2ban
 alias f2bans='litecli -D /var/lib/fail2ban/fail2ban.sqlite3 -t -e "select jail, ip, datetime(a.timeofban, '\''unixepoch'\'') as timeofban, time(a.bantime, '\''unixepoch'\'') as bantime, a.bancount from bans a "'
 
