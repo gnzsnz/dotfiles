@@ -38,11 +38,6 @@ if [ "$(which gpgconf)" ] && [ -S "$(gpgconf --list-dirs agent-ssh-socket)" ]
 then
   SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
   export SSH_AUTH_SOCK
-elif [ "$(which gpgconf)" ] && [ ! -S "$(gpgconf --list-dirs agent-ssh-socket)" ]
-then
-  eval "$(gpg-connect-agent /bye)"
-  SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-  export SSH_AUTH_SOCK
 fi
 # end gpg
 
