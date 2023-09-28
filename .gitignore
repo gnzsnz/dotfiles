@@ -23,3 +23,6 @@
 .LSOverride
 # Thumbnails
 ._*
+
+# jupyter
+.ipynb_checkpoints/
