@@ -25,22 +25,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # Set architecture flags
 export ARCHFLAGS="-arch $(uname -m)"
 
-#
-# gpg-agent
-GPG_TTY=$(tty)
-export GPG_TTY
-unset SSH_AGENT_PID
-
-if [ "$(which gpg-connect-agent)" ]; then
-  gpg-connect-agent updatestartuptty /bye >/dev/null
-fi
-if [ "$(which gpgconf)" ] && [ -S "$(gpgconf --list-dirs agent-ssh-socket)" ]
-then
-  SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-  export SSH_AUTH_SOCK
-fi
-# end gpg
-
 # OS specific
 if [[ "$OSTYPE" == "darwin"* ]]; then 
   
@@ -107,6 +91,23 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 ##
 fi
 # end OS specific
+
+#
+# gpg-agent
+# once OS specific is done, so brew path is set
+GPG_TTY=$(tty)
+export GPG_TTY
+unset SSH_AGENT_PID
+
+if [ "$(which gpg-connect-agent)" ]; then
+  gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
+if [ "$(which gpgconf)" ] && [ -S "$(gpgconf --list-dirs agent-ssh-socket)" ]
+then
+  SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  export SSH_AUTH_SOCK
+fi
+# end gpg
 
 # java
 #[[ $(which java) ]] && export JAVA_HOME=$(/usr/libexec/java_home)
