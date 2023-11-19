@@ -10,12 +10,15 @@ my dotfiles
 - less sensible defaults
 - [pyenv](https://github.com/pyenv/pyenv) and python defaults
 - Linux & OSX support
-- [dircolors](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html), lots of colors
+- [dircolors][1], lots of colors
 - bash aliases
 
 ## Installation
 
-I haven't made my mind on how to setup my dotfiles, one option is to create a bare git repository, as explained [here](https://www.atlassian.com/git/tutorials/dotfiles). Another option is to set up a normal repo and `stow` your dotfiles. As I can not make my mind, I support both.
+I haven't made my mind on how to setup my dotfiles, one option is to create a
+bare git repository, as explained [here](https://www.atlassian.com/git/tutorials/dotfiles).
+Another option is to set up a normal repo and `stow` your dotfiles. As I can
+not make my mind, I support both.
 
 ### Bare repository option
 
@@ -81,6 +84,7 @@ Support for the following `dircolors` schemes
 To select your theme edit `.bashrc` and set `THEME` environment variable.
 
 Valid values for `THEME`:
+
 - nordtheme
 - solarized-256dark
 - solarized-ansi-light
@@ -92,11 +96,14 @@ Valid values for `THEME`:
 
 The default value is `dark-one`
 
-If you know any other color scheme, I would love to include it. Please let me know by creating an issue.
+If you know any other color scheme, I would love to include it. Please let me
+know by creating an issue.
 
 ## Inspiration
 
 - [Manage dotfiles with git](https://www.atlassian.com/git/tutorials/dotfiles)
-- https://github.com/mathiasbynens/dotfiles
-- https://github.com/webpro/dotfiles
-- https://bitbucket.org/durdn/cfg/src/master/
+- [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+- [https://github.com/webpro/dotfiles](https://github.com/webpro/dotfiles)
+- [https://bitbucket.org/durdn/cfg](https://bitbucket.org/durdn/cfg/src/master/)
+
+[1]: https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html

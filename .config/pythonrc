@@ -16,7 +16,7 @@ if command -v pyenv >/dev/null ; then
    eval "$(pyenv init -)"
    #eval "$(pyenv init --path)"
    # pyenv bash completion
-   if [ -f "$(pyenv root)"/completions/pyenv.bash ] ; then 
+   if [ -f "$(pyenv root)"/completions/pyenv.bash ] ; then
       source "$(pyenv root)"/completions/pyenv.bash
    elif [ -f /opt/homebrew/opt/pyenv/completions/pyenv.bash ]; then
       source /opt/homebrew/opt/pyenv/completions/pyenv.bash
@@ -31,8 +31,8 @@ fi
 ## end pyenv
 
 # PYTHONSTARTUP
-[ -f "~/.config/ptpythonstartup.py" ] && \
-export PYTHONSTARTUP="~/.config/ptpythonstartup.py"
+[ -f "$HOME/.config/ptpythonstartup.py" ] && \
+export PYTHONSTARTUP="$HOME/.config/ptpythonstartup.py"
 
 # gpip
 gpip(){
@@ -54,11 +54,5 @@ if [[ -z "$PIP_REQUIRE_VIRTUALENV" ]]; then
 fi
 
 # pip bash completion start
-_pip_completion()
-{
-    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-                   COMP_CWORD=$COMP_CWORD \
-                   PIP_AUTO_COMPLETE=1 $1 ) )
-}
-complete -o default -F _pip_completion pip
+eval "$(python -m pip completion --bash)"
 # pip bash completion end

@@ -8,17 +8,17 @@
 #
 ###############################################################################
 
-alias cp='cp -iv'                           # Preferred 'cp' implementation
-alias mv='mv -iv'                           # Preferred 'mv' implementation
-alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ln='ln -iv'                           # Preferred 'ln' implementation
-alias ls='ls -F --color=auto'               # Preferred 'ls' implementation
-alias sl='ls'                               # Preferred ls typo
+alias cp='cp -iv'             # Preferred 'cp' implementation
+alias mv='mv -iv'             # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'       # Preferred 'mkdir' implementation
+alias ln='ln -iv'             # Preferred 'ln' implementation
+alias ls='ls -F --color=auto' # Preferred 'ls' implementation
+alias sl='ls'                 # Preferred ls typo
 alias ll='ls -FlAhp'
 # some more ls aliases
 alias la='ls -FAp'
 alias l='ls -CF'
-alias left='ls -Ftr -1'                       # sort by modification time
+alias left='ls -Ftr -1' # sort by modification time
 
 # cd
 alias cd..='cd ..'
@@ -42,6 +42,8 @@ alias genv='env|grep -i '
 alias sudo='sudo '
 
 # just what you need mount
+
+# shellcheck disable=SC2142
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -55,17 +57,17 @@ alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 ### add OS specific alias ###
 case $(uname) in
-    Linux)
-        # sort by size
-        alias lt='ls --human-readable --size -1 -Sr --classify'
-        alias dpkg-purge-list="dpkg --list | grep ^rc| cut -d ' ' -f 3"
-        alias dpkg-purge='apt purge $(dpkg --list | grep ^rc| cut -d " " -f 3)'
+Linux)
+	# sort by size
+	alias lt='ls --human-readable --size -1 -Sr --classify'
+	alias dpkg-purge-list="dpkg --list | grep ^rc| cut -d ' ' -f 3"
+	alias dpkg-purge='apt purge $(dpkg --list | grep ^rc| cut -d " " -f 3)'
 	alias reboot-required='[ -f /var/run/reboot-required ] && echo "Reboot required" || echo "Reboot NOT required"'
-        ;;
-    Darwin)
-        # sort by size
-        alias lt='du -sh * | sort -hr'
-        ;;
+	;;
+Darwin)
+	# sort by size
+	alias lt='du -sh * | sort -hr'
+	;;
 esac
 ## end OS specific alias
 
@@ -79,19 +81,19 @@ alias f2bips='litecli -D /var/lib/fail2ban/fail2ban.sqlite3 -t -e "select a.jail
 
 # ls urls
 lsurl() {
-  curl -s "$1" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'
+	curl -s "$1" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'
 }
 
 if [[ $(which python) && $(which pygmentize) ]]; then
-  jsonpp() {
-    if [ -z "$THEME" ]; then
-      _style=one-dark
-    else
-      _style=$THEME
-    fi;
-    python -m json.tool "$1" | pygmentize -l json -O style="$_style" | less
-  }
-fi;
+	jsonpp() {
+		if [ -z "$THEME" ]; then
+			_style=one-dark
+		else
+			_style=$THEME
+		fi
+		python -m json.tool "$1" | pygmentize -l json -O style="$_style" | less
+	}
+fi
 
 # disable alias for current session
 # unalias ll
