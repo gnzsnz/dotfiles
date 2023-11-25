@@ -54,5 +54,5 @@ if [[ -z "$PIP_REQUIRE_VIRTUALENV" ]]; then
 fi
 
 # pip bash completion start
-eval "$(python -m pip completion --bash)"
+eval "$(python3 -m pip completion --bash)"
 # pip bash completion end
