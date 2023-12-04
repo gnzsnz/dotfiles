@@ -8,11 +8,6 @@
 ###############################################################################
 # shellcheck disable=SC1091
 
-# PATH
-# Ensure user-installed binaries take precedence
-PATH="$HOME/.local/bin:$PATH"
-export PATH
-
 # character set
 #if locale -a | grep -qi 'en_US.UTF-8'; then
 #  export LC_ALL=en_US.UTF-8
@@ -179,3 +174,7 @@ fi
 # shellcheck disable=SC1090
 [ -f ~/.config/bash_prompt ] && source ~/.config/bash_prompt
 # end sexy bash prompt
+
+# PATH Ensure user-installed binaries take precedence
+PATH="$HOME/.local/bin:$PATH"
+export PATH
