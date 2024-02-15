@@ -60,6 +60,7 @@ case $(uname) in
 Linux)
 	# sort by size
 	alias lt='ls --human-readable --size -1 -Sr --classify'
+	alias crontab="crontab -i"
 	alias dpkg-purge-list="dpkg --list | grep ^rc| cut -d ' ' -f 3"
 	alias dpkg-purge='apt purge $(dpkg --list | grep ^rc| cut -d " " -f 3)'
 	alias reboot-required='[ -f /var/run/reboot-required ] && echo "Reboot required" || echo "Reboot NOT required"'
