@@ -58,3 +58,9 @@ if [ "$(which pip)" ]; then
    eval "$(python3 -m pip completion --bash)"
 fi
 # pip bash completion end
+
+# pipx
+if [ "$(which pipx)" ]; then
+   eval "$(register-python-argcomplete pipx)"
+fi
+# end pipx
