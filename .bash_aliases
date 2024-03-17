@@ -96,6 +96,13 @@ if [[ $(which python) && $(which pygmentize) ]]; then
 	}
 fi
 
+# exchange calendars
+if [[ $(which ecal) ]]; then
+	alias xcal='ecal XNYS $(date +"%m %Y")'
+	alias ycal='ecal XNYS $(date +"%Y")'
+fi
+# end exchange calendars
+
 # disable alias for current session
 # unalias ll
 #
