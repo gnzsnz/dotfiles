@@ -54,7 +54,7 @@ if [[ -z "$PIP_REQUIRE_VIRTUALENV" ]]; then
 fi
 
 # pip bash completion start
-if [ "$(python3 -m pip)" ]; then
+if [ "$(python3 -m pip 2> /dev/null)" ]; then
    eval "$(python3 -m pip completion --bash)"
 fi
 # pip bash completion end
