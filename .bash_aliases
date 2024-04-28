@@ -73,7 +73,7 @@ esac
 ## end OS specific alias
 
 # gpg update tty for pientry
-alias gpgtty='gpg-connect-agent updatestartuptty /bye'
+alias gpgtty='gpg-connect-agent updatestartuptty /bye && echo "1"|gpg --clearsign > /dev/null'
 
 ## fail2ban
 alias f2bans='litecli -D /var/lib/fail2ban/fail2ban.sqlite3 -t -e "select jail, ip, datetime(a.timeofban, '\''unixepoch'\'') as timeofban, time(a.bantime, '\''unixepoch'\'') as bantime, a.bancount from bans a "'
