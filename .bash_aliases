@@ -85,6 +85,12 @@ lsurl() {
 	curl -s "$1" | grep -o 'href=".*">' | sed -e "s/href=\"//g" | sed -e 's/">//g'
 }
 
+# password generator
+passgen() {
+	_l=${1:-25}
+	dd if=/dev/urandom bs="${_l}" count=1 status=none | base64 | cut -c1-"${_l}"
+}
+
 if [[ $(which python) && $(which pygmentize) ]]; then
 	jsonpp() {
 		if [ -z "$THEME" ]; then
