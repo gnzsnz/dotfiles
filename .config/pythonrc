@@ -31,8 +31,8 @@ fi
 ## end pyenv
 
 # PYTHONSTARTUP
-[ -f "$HOME/.config/ptpythonstartup.py" ] && \
-export PYTHONSTARTUP="$HOME/.config/ptpythonstartup.py"
+#[ -f "$HOME/.config/ptpythonstartup.py" ] && \
+#export PYTHONSTARTUP="$HOME/.config/ptpythonstartup.py"
 
 # gpip
 gpip(){

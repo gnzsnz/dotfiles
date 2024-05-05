@@ -21,6 +21,7 @@
 [alias]
 	slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'
 	aliases = config --get-regexp alias
+	remov = remote -v
 [help]
 	autocorrect = 20
 [advice]

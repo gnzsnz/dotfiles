@@ -91,14 +91,14 @@ passgen() {
 	dd if=/dev/urandom bs="${_l}" count=1 status=none | base64 | cut -c1-"${_l}"
 }
 
-if [[ $(which python) && $(which pygmentize) ]]; then
+if [[ $(which python3) && $(which pygmentize) ]]; then
 	jsonpp() {
 		if [ -z "$THEME" ]; then
 			_style=one-dark
 		else
 			_style=$THEME
 		fi
-		python -m json.tool "$1" | pygmentize -l json -O style="$_style" | less
+		python3 -m json.tool "$1" | pygmentize -l json -O style="$_style" | less
 	}
 fi
 
