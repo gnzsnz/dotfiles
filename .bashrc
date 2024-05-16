@@ -112,6 +112,10 @@ fi
 # java
 #[[ $(which java) ]] && export JAVA_HOME=$(/usr/libexec/java_home)
 
+# PATH Ensure user-installed binaries take precedence
+PATH="$HOME/.local/bin:$PATH"
+export PATH
+
 # python
 # shellcheck disable=SC1090
 if [ -f ~/.config/pythonrc ]; then
@@ -174,7 +178,3 @@ fi
 # shellcheck disable=SC1090
 [ -f ~/.config/bash_prompt ] && source ~/.config/bash_prompt
 # end sexy bash prompt
-
-# PATH Ensure user-installed binaries take precedence
-PATH="$HOME/.local/bin:$PATH"
-export PATH
