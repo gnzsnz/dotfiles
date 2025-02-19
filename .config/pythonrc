@@ -43,8 +43,8 @@ gpip3(){
    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
-alias pipup='pip freeze | grep -v '^\-e' |grep -v @| cut -d = -f 1 | xargs pip install -U'
-alias pipup3='pip3 freeze | grep -v '^\-e' |grep -v @| cut -d = -f 1 | xargs pip3 install -U'
+alias pipup='pip freeze|grep -v '^\-e' |grep -v '^#'|grep -v @|cut -d = -f 1|xargs pip install -U'
+alias pipup3='pip3 freeze|grep -v '^\-e' |grep -v '^#'|grep -v @|cut -d = -f 1|xargs pip3 install -U'
 
 # homebrew python pip
 # pip should only run if there is a virtualenv currently activated

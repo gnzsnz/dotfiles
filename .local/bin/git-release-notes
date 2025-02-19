@@ -1,0 +1,55 @@
+#! /bin/bash
+
+usage() {
+	echo "Usage: git-release-notes [previous_version] [version]"
+	echo "  previous_version: The previous version to compare with"
+	echo "  version: The version to generate the release notes for"
+}
+
+# Check if inside a git repository
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+	echo "Not a git repository"
+	usage
+	exit 1
+fi
+
+# Determine the current version
+if [ -z "$2" ]; then
+	VERSION=$(git tag --sort=-committerdate | head -1)
+else
+	VERSION=$2
+fi
+
+# Determine the previous version
+if [ -z "$1" ]; then
+	PREVIOUS_VERSION=$(git tag --sort=-committerdate | head -2 | tail -1)
+else
+	PREVIOUS_VERSION=$1
+fi
+
+# Check if tags are empty
+if [ -z "$VERSION" ] || [ -z "$PREVIOUS_VERSION" ]; then
+	echo "Error: Could not determine versions. Make sure there are at least two tags in the repository."
+	exit 1
+fi
+
+# Generate the list of changes
+CHANGES=$(git log --pretty="- %s" "$PREVIOUS_VERSION"..."$VERSION")
+
+# Output the release notes
+cat <<EOF
+
+ # 🎁 Release notes (\`$VERSION\`)
+
+ ## Changes
+
+ $CHANGES
+
+ ## Metadata
+
+\`\`\`
+ This version -------- $VERSION
+ Previous version ---- $PREVIOUS_VERSION
+ Total commits ------- $(echo "$CHANGES" | wc -l)
+\`\`\`
+EOF
