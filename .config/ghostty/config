@@ -1,0 +1,47 @@
+# ~/.config/ghostty/config
+#
+# to show the default configuration with documentation.
+# ghostty +show-config --default --docs
+#
+
+font-family = "JetBrains Mono"
+#font-size = 14
+
+# Run ghostty +list-themes to browse available themes.
+theme = SynthwaveAlpha
+cursor-style = block
+
+
+background-opacity = 0.96
+background-blur-radius = 40
+
+
+# You might now want this, I'm using Fish, but you're likely on Zsh.
+shell-integration = bash
+shell-integration-features = cursor, sudo, title
+
+macos-titlebar-style = tabs
+#macos-option-as-alt = true
+
+# Auto-update Ghostty when a new release is available.
+auto-update = download
+
+# gpg pinentry freaks out if $TERM is not set
+# term = xterm-256color
+
+mouse-hide-while-typing = true
+
+# keymaps
+#keybind = global:cmd+`=toggle_quick_terminal
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
+
+# byobu keybinds
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+
+#
+quit-after-last-window-closed = true
+window-new-tab-position = end
