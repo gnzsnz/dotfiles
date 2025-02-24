@@ -1,0 +1,30 @@
+#
+# https://github.com/scop/bash-completion/blob/main/README.md
+
+# homebrew bash_completion
+if [ "$(which brew)" ] && [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]
+    then
+    source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+fi
+
+
+# pass https://www.passwordstore.org/
+if [ "$(which brew)" ] && [ -f "$(brew --prefix)/etc/bash_completion.d/pass" ]; then
+    # shellcheck disable=SC1091
+    source "$(brew --prefix)/etc/bash_completion.d/pass"
+
+elif [ -f "/usr/share/bash-completion/completions/pass" ]; then
+		source /usr/share/bash-completion/completions/pass
+fi
+
+# pip bash completion start
+if [ "$(python3 -m pip 2> /dev/null)" ]; then
+   eval "$(python3 -m pip completion --bash)"
+fi
+# pip bash completion end
+
+# pipx
+if [ "$(which pipx)" ]; then
+   eval "$(register-python-argcomplete pipx)"
+fi
+# end pipx

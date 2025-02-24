@@ -52,15 +52,3 @@ if [[ -z "$PIP_REQUIRE_VIRTUALENV" ]]; then
    PIP_REQUIRE_VIRTUALENV=true
    export PIP_REQUIRE_VIRTUALENV
 fi
-
-# pip bash completion start
-if [ "$(python3 -m pip 2> /dev/null)" ]; then
-   eval "$(python3 -m pip completion --bash)"
-fi
-# pip bash completion end
-
-# pipx
-if [ "$(which pipx)" ]; then
-   eval "$(register-python-argcomplete pipx)"
-fi
-# end pipx

@@ -37,13 +37,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# disable env hints
 	[ "$(which brew)" ] && export HOMEBREW_NO_ENV_HINTS=1
 
-	# homebrew bash_completion
-	#if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
-	#    source "$(brew --prefix)/etc/bash_completion"
-	#fi
-
-	[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-
 	# brew.sh coreutils
 	if [ -d "$(brew --prefix)/coreutils/libexec/gnubin" ]; then
 		PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
@@ -53,12 +46,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# set editor
 	[ "$(which code)" ] && EDITOR="$(which code) -w"
 	export EDITOR
-
-	# pass https://www.passwordstore.org/
-	if [ -f "$(brew --prefix)/etc/bash_completion.d/pass" ]; then
-		# shellcheck disable=SC1091
-		source "$(brew --prefix)/etc/bash_completion.d/pass"
-	fi
 
 	# OSX multipass
 	if [[ $(which multipass) ]]; then
@@ -76,11 +63,6 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		elif [ -f /etc/bash_completion ]; then
 			source /etc/bash_completion
 		fi
-	fi
-
-	# pass https://www.passwordstore.org/
-	if [ -f "/usr/share/bash-completion/completions/pass" ]; then
-		source /usr/share/bash-completion/completions/pass
 	fi
 
 	#
@@ -153,25 +135,9 @@ if [ -f ~/.config/sensible.bash ]; then
 fi
 # end bash.sensible
 
-# # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/gonzo/bin/google-cloud-sdk/path.bash.inc' ]; then
-#   . '/Users/gonzo/bin/google-cloud-sdk/path.bash.inc';
-# fi
-#
-# # The next line enables shell command completion for gcloud.
-# if [ -f '/Users/gonzo/bin/google-cloud-sdk/completion.bash.inc' ]; then
-#   . '/Users/gonzo/bin/google-cloud-sdk/completion.bash.inc';
-# fi
-
 #torsocks
 [ -f "$HOME"/.torsocks.conf ] && TORSOCKS_CONF_FILE="$HOME"/.torsocks.conf
 export TORSOCKS_CONF_FILE
-
-# kitty bash completion
-#source <(kitty + complete setup bash)
-if [[ $(which kitty) ]]; then
-	source /dev/stdin <<<"$(kitty + complete setup bash)"
-fi
 
 # sexy bash prompt
 # https://github.com/twolfson/sexy-bash-prompt
