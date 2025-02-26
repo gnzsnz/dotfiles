@@ -47,6 +47,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	[ "$(which code)" ] && EDITOR="$(which code) -w"
 	export EDITOR
 
+	# homebrew bash_completion
+	if [ "$(which brew)" ] && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+		source "$(brew --prefix)/etc/bash_completion"
+	fi
+
 	# OSX multipass
 	if [[ $(which multipass) ]]; then
 		PATH="$PATH:$HOME/Library/Application Support/multipass/bin"
