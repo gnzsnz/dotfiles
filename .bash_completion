@@ -28,3 +28,9 @@ if [ "$(which poetry)" ]; then
    eval "$(poetry completions bash)"
 fi
 # end poetry
+
+# ruff completion
+if [ "$(which ruff)" ]; then
+   eval "$(ruff generate-shell-completion bash)"
+fi
+# end ruff
