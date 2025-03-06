@@ -7,16 +7,15 @@
 font-family = "JetBrains Mono"
 #font-size = 14
 
-# Run ghostty +list-themes to browse available themes.
+# Run `ghostty +list-themes` to browse available themes.
 theme = SynthwaveAlpha
 cursor-style = block
-
 
 background-opacity = 0.96
 background-blur-radius = 40
 
 
-# You might now want this, I'm using Fish, but you're likely on Zsh.
+# shell integration.
 shell-integration = bash
 shell-integration-features = cursor, sudo, title
 
@@ -36,11 +35,10 @@ mouse-hide-while-typing = true
 keybind = cmd+left=previous_tab
 keybind = cmd+right=next_tab
 
-# byobu keybinds
+# byobu keybinds fix
 macos-option-as-alt = left
 keybind = alt+left=unbind
 keybind = alt+right=unbind
-
 
 #
 quit-after-last-window-closed = true
