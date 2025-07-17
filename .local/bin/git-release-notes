@@ -39,13 +39,13 @@ CHANGES=$(git log --pretty="- %s" "$PREVIOUS_VERSION"..."$VERSION")
 # Output the release notes
 cat <<EOF
 
- # 🎁 Release notes (\`$VERSION\`)
+# 🎁 Release notes (\`$VERSION\`)
 
- ## Changes
+## Changes
 
- $CHANGES
+$CHANGES
 
- ## Metadata
+## Metadata
 
 \`\`\`
  This version -------- $VERSION

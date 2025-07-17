@@ -2,9 +2,9 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [user]
-	name = gonzo
-	email = gonzalosaenz@gmail.com
-	signingkey = 5B9513CB
+	name = gnzsnz
+	email = 8376642+gnzsnz@users.noreply.github.com
+	signingkey = E045DA8C87CCE368AF61F5433C112C311EFE2FF5
 [commit]
 	gpgsign = true
 [gpg]
@@ -19,7 +19,7 @@
 [init]
 	defaultBranch = master
 [alias]
-	slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'
+	slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an) %G?'
 	aliases = config --get-regexp alias
 	remov = remote -v
 [help]
