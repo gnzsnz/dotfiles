@@ -27,4 +27,4 @@
 [advice]
 	ignoredHook = false
 [core]
-	excludesfile = /Users/gonzo/.config/git/gitignore
+	excludesfile = ~/.config/git/gitignore
