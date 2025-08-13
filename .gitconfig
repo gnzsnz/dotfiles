@@ -28,3 +28,25 @@
 	ignoredHook = false
 [core]
 	excludesfile = ~/.config/git/gitignore
+	compression = 9
+	pager = diff-so-fancy | less --tabs=4 -RF
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[commit]
+    verbose = true
+[rerere]
+    enabled = true
+    autoupdate = true
+[column]
+    ui = auto
+[push]
+    autoSetupRemote = true
+[maintenance]
+    auto = true
+    strategy = incremental
+[status]
+    branch = true
+[interactive]
+	diffFilter = diff-so-fancy --patch
