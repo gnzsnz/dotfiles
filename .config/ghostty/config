@@ -8,7 +8,7 @@ font-family = "JetBrains Mono"
 #font-size = 14
 
 # Run `ghostty +list-themes` to browse available themes.
-theme = SynthwaveAlpha
+theme = "Synthwave Alpha"
 cursor-style = block
 
 background-opacity = 0.96

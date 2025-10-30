@@ -10,6 +10,8 @@
 # elif [ -f "/usr/share/bash-completion/completions/pass" ]; then
 # 		source /usr/share/bash-completion/completions/pass
 # fi
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && \
+   source "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # pip bash completion start
 if [ "$(python3 -m pip 2> /dev/null)" ]; then

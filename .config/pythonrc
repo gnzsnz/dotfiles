@@ -52,3 +52,13 @@ if [[ -z "$PIP_REQUIRE_VIRTUALENV" ]]; then
    PIP_REQUIRE_VIRTUALENV=true
    export PIP_REQUIRE_VIRTUALENV
 fi
+
+# pipx
+# https://pipx.pypa.io/stable/docs/
+PIPX_DEFAULT_PYTHON="$HOME/.pyenv/versions/3.13.7/bin/python3"
+export PIPX_DEFAULT_PYTHON
+PIPX_HOME="$HOME/.local/share/pipx"
+export PIPX_HOME
+if [ -d "$PIPX_HOME" ]; then
+   mkdir -p "$PIPX_HOME"
+fi
