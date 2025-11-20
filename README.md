@@ -33,7 +33,7 @@ source .bash_profile # to load shell in dotfiles
 
 ### Stow option
 
-This requires stow. Wich can be installed like this
+This requires stow. Which can be installed like this
 
 ```bash
 # osx

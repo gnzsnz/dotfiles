@@ -10,16 +10,16 @@
 # elif [ -f "/usr/share/bash-completion/completions/pass" ]; then
 # 		source /usr/share/bash-completion/completions/pass
 # fi
-if [ -f "/opt/homebrew/etc/profile.d/bash_completion.sh" ]; then
-   # shellcheck source=/dev/null
-   source "/opt/homebrew/etc/profile.d/bash_completion.sh"
-fi
+# if [ -f "/opt/homebrew/etc/profile.d/bash_completion.sh" ]; then
+#    # shellcheck source=/dev/null
+#    source "/opt/homebrew/etc/profile.d/bash_completion.sh"
+# fi
 
 # pip bash completion start
 if [ "$(python3 -m pip 2> /dev/null)" ]; then
-   if [ -f ~/.config/bash_completion/pip-completion.sh ]; then
+   if [ -f ~/.config/bash_completion.d/pip-completion.sh ]; then
       # shellcheck source=/dev/null
-      source ~/.config/bash_completion/pip-completion.sh
+      source ~/.config/bash_completion.d/pip-completion.sh
    else
       eval "$(python3 -m pip completion --bash)"
    fi
@@ -28,9 +28,9 @@ fi
 
 # pipx
 if command -v pipx &> /dev/null; then
-   if [ -f ~/.config/bash_completion/pipx-completion.sh ]; then
+   if [ -f ~/.config/bash_completion.d/pipx-completion.sh ]; then
       # shellcheck source=/dev/null
-      source ~/.config/bash_completion/pipx-completion.sh
+      source ~/.config/bash_completion.d/pipx-completion.sh
    else
       eval "$(register-python-argcomplete pipx)"
    fi
@@ -39,9 +39,9 @@ fi
 
 # poetry
 if command -v poetry &> /dev/null; then
-   if [ -f ~/.config/bash_completion/poetry-completion.sh ]; then
+   if [ -f ~/.config/bash_completion.d/poetry-completion.sh ]; then
       # shellcheck source=/dev/null
-      source ~/.config/bash_completion/poetry-completion.sh
+      source ~/.config/bash_completion.d/poetry-completion.sh
    else
       eval "$(poetry completions bash)"
    fi
@@ -50,9 +50,9 @@ fi
 
 # ruff completion
 if command -v ruff &> /dev/null; then
-   if [ -f ~/.config/bash_completion/ruff-completion.sh ]; then
+   if [ -f ~/.config/bash_completion.d/ruff-completion.sh ]; then
       # shellcheck source=/dev/null
-      source ~/.config/bash_completion/ruff-completion.sh
+      source ~/.config/bash_completion.d/ruff-completion.sh
    else
       eval "$(ruff generate-shell-completion bash)"
    fi
