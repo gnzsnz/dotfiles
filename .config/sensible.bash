@@ -28,6 +28,9 @@ set -o noclobber
 
 # Update window size after every command
 shopt -s checkwinsize
+# https://grok.com/share/bGVnYWN5_3b675ba5-bf04-4bb8-bc9e-755e46248ca2
+# fix ssh messing bash on exit
+shopt -s huponexit
 
 # Automatically trim long paths in the prompt (requires Bash 4.x)
 PROMPT_DIRTRIM=2
