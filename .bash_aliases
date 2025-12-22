@@ -109,6 +109,8 @@ if [[ $(which ecal) ]]; then
 fi
 # end exchange calendars
 
+alias termreset='tput reset'
+
 # disable alias for current session
 # unalias ll
 #
