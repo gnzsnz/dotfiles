@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 # https://github.com/scop/bash-completion/blob/main/README.md
 
+# uv
+if command -v uv &> /dev/null; then
+   if [ -f ~/.config/bash_completion.d/uv-completion.sh ]; then
+      # shellcheck source=/dev/null
+      source ~/.config/bash_completion.d/uv-completion.sh
+   else
+      eval "$(uvx --generate-shell-completion bash)"
+   fi
+fi
+# end uv
 
 # pass https://www.passwordstore.org/
 # if [ "$(which brew)" ] && [ -f "$(brew --prefix)/etc/bash_completion.d/pass" ]; then
@@ -25,28 +35,6 @@ if [ "$(python3 -m pip 2> /dev/null)" ]; then
    fi
 fi
 # pip bash completion end
-
-# pipx
-if command -v pipx &> /dev/null; then
-   if [ -f ~/.config/bash_completion.d/pipx-completion.sh ]; then
-      # shellcheck source=/dev/null
-      source ~/.config/bash_completion.d/pipx-completion.sh
-   else
-      eval "$(register-python-argcomplete pipx)"
-   fi
-fi
-# end pipx
-
-# poetry
-if command -v poetry &> /dev/null; then
-   if [ -f ~/.config/bash_completion.d/poetry-completion.sh ]; then
-      # shellcheck source=/dev/null
-      source ~/.config/bash_completion.d/poetry-completion.sh
-   else
-      eval "$(poetry completions bash)"
-   fi
-fi
-# end poetry
 
 # ruff completion
 if command -v ruff &> /dev/null; then
