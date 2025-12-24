@@ -34,6 +34,7 @@
     sort = -committerdate
 [tag]
     sort = version:refname
+	gpgSign = true
 [commit]
     verbose = true
 [rerere]

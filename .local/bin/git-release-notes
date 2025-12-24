@@ -15,14 +15,14 @@ fi
 
 # Determine the current version
 if [ -z "$2" ]; then
-	VERSION=$(git tag --sort=-committerdate | head -1)
+	VERSION=$(git tag --sort=-committerdate | tail -1)
 else
 	VERSION=$2
 fi
 
 # Determine the previous version
 if [ -z "$1" ]; then
-	PREVIOUS_VERSION=$(git tag --sort=-committerdate | head -2 | tail -1)
+	PREVIOUS_VERSION=$(git tag --sort=-committerdate | tail -2 | head -1)
 else
 	PREVIOUS_VERSION=$1
 fi
@@ -38,7 +38,7 @@ CHANGES=$(git log --pretty="- %s" "$PREVIOUS_VERSION"..."$VERSION")
 
 # Output the release notes
 cat <<EOF
-
+$VERSION
 # 🎁 Release notes (\`$VERSION\`)
 
 ## Changes
