@@ -1,0 +1,11 @@
+#!/bin/sh
+# Checks that each backend in the given file answers over IPv4 with the release file.
+# Usage: ./check-backends.sh backends_ubuntu resolute
+#        ./check-backends.sh backends_debian stable
+file="$1"
+suite="$2"
+while read -r url; do
+	[ -z "$url" ] && continue
+	code=$(curl -4 -s -o /dev/null -m 8 -w '%{http_code}' "${url}dists/${suite}/InRelease")
+	printf '%s  %s\n' "$code" "$url"
+done <"$file"
